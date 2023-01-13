@@ -18,10 +18,10 @@ import sys
 import yaml
 
 if len(sys.argv) != 3:
-    print("Usage: {} <donor> <recipient>".format(sys.argv[0]))
+    print(f"Usage: {sys.argv[0]} <donor> <recipient>")
     sys.exit(1)
 
-print("Extracting cluster from {}".format(sys.argv[1]))
+print(f"Extracting cluster from {sys.argv[1]}")
 with open(sys.argv[1]) as raw_donor:
     donor = yaml.load(raw_donor, yaml.FullLoader)
 
@@ -35,7 +35,7 @@ if not foundDonor:
     print("Did not find cluster 'user' in donor")
     sys.exit(1)
 
-print("Donating cluster to {}".format(sys.argv[2]))
+print(f"Donating cluster to {sys.argv[2]}")
 with open(sys.argv[2], "r") as raw_recipient:
     recipient = yaml.load(raw_recipient, yaml.FullLoader)
     foundCluster = False
